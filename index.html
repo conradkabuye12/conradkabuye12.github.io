@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en"
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kabuye portifolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="images/logo.png" class="logo">
+            <ul>
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            <p>Software Engineer</p>
+            <h1>Hi, I'm <span>Kabuye</span><br> Conrad from Uganda</h1>
+        </div>
+    </div>
+</div>
+<!------------about----------------->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                
+                 <img src="images/picture2.png">
+            </div>
+            
+            <div class="about-col-2">
+                <img src="images/picture3.jpeg">
+            </div>
+            <h1 class="sub-title">About Me</h1>
+            <p> 
+                Hey there! I'm Conrad Kabuye, a 23-year-old Ugandan currently studying Business Information Technology (BBIT) at Strathmore University. 
+                Passionate about the intersection of business and technology, 
+                I'm driven by a curiosity to understand how innovation can fuel organizational growth and societal progress. 
+                Beyond academics
+            </p>
+             <div class="tab-titles"></div>
+             <p class="tab-links active-link" onclick="opentab('Skills')">Skills</p>
+             <p class="tab-links" onclick="opentab('Experience')">Experience</p>
+             <p class="tab-links" onclick="opentab('Education')">Education</p>
+            </div>
+            <div class="tab-contents active-tab" id="Skills">
+                <ul>
+                    <li><span>UI?UX</span><br>Designing web/app interfaces</li>
+                    <li><span>web development</span><br>Designing web/app interfaces</li>
+                    <li><span>app development</span><br>buildng andriod/ios apps</li>
+                </ul>
+            </div>
+            <div class="tab-contents" id="Experience">
+                <ul>
+                    <li><span>Data entry and accounting </span><br>Diploma in Business Informatiion Technology</li>
+                    <li><span>Teaching Python </span><br>Bachelors in Business Information Technology</li>
+                    <li><span>Teaching accounting</span><br>buildng andriod/ios apps</li>
+                </ul>
+            </div>
+            <div class="tab-contents" id="Education">
+                <ul>
+                    <li><span>2020 September - 2021 December </span><br>Diploma in Business Informatiion Technology</li>
+                    <li><span>2022 July - Present </span><br>Bachelors in Business Information Technology</li>
+                    <li><span>app development</span><br>buildng andriod/ios apps</li>
+                </ul>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+<!-----------portfolio---------------->
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Work</h1>
+        <div class="work-list">
+              <div class="work">
+                <img src="images/picture2.png">
+                <div class="layer"></div>
+                <h3>social media app</h3>
+                <p>app connects you to talented people</p>
+               </div>
+            <div class="work">
+                <img src="images/picture2.png">
+                <div class="layer"></div>
+                <h3>social media app</h3>
+                <p>app connects you to talented people</p>
+            </div>
+        </div>
+       <a href="#" class="btn">See more</a>
+    </div>
+</div>
+
+<!-----------contact------------------->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+        <div class="contact-left">
+        <h1 class="sub-title">Contact me</h1>
+        <p>mathias.kabuye@strathmore.edu</p>
+        <p>+254704064075</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/accounts/onetap/?next=%2F"><i class="fi fi-brands-instagram"></i></i></a>
+        </div>
+        <a href="images/CONRADCV.pdf" download class="btn btn2">Download CV</a>
+    </div>
+   </div class="contact-right">
+              <form name="submit-to-google-sheet">
+      <input type="text" name="Name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+      <button type="submit" class="btn btn2">Submit</button>
+              </form>
+            </div>
+       </div>
+       <div class="copyright">
+           <p>Made By Kabuye Mathias Conrad</p>
+       </div>
+   </div>
+</div>
+ <script>
+
+     var tablinks = document.getElementsByClassName("tab-links");
+     var tabcontents = document.getElementsByClassName("tab-contents");
+
+     function opentab(tabname){
+          for(tablink of tablinks){
+              tablink.classList.remove("active-link");
+          }
+          for(tabcontent of tabcontents){
+              tabcontent.classList.remove("active-tab");
+          }
+          event.currentTarget.classList.add("active-link");
+          document.getElementById(tabname).classList.add("active-tab");
+
+     }
+ </script>  
+ <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzPUvS-vs_yFPhi_ixLESJf3xOPg6jzJ7S3XqpXKF5Jtqh3MAKNToKQ6Wo7tAzfUWa4/exec'
+    const form = document.forms['submit-to-google-sheet']
+    
+    form.addEventListner('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('success!', response))
+        .catch(error => console.error('Error', error.message))
+    })
+ </script>
+</body>
+
+</html>
